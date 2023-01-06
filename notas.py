@@ -1,4 +1,13 @@
 import csv
+# Obtiene un int n de notas a partir de input por consola
+# Se asegura de que lo entregado sea un número natural sin detener el programa
+def obtener_n_notas() -> int:
+    while True:
+        n = input('Ingrese el número de notas: ')
+        if n.isnumeric() and n != '0':
+            return int(n)
+        print('Por favor, ingrese un número natural válido')
+
 
 def obtener_notas(n_notas):
     print("ingrese sus notas: (nota pendiente ingresar 0)")
@@ -113,7 +122,7 @@ def notas_minimas(n_notas, notas, pesos, promedio):
     return notas
 
 def main():
-    n_notas = int(input("Cantidad de notas: "))
+    n_notas = obtener_n_notas()
     notas = obtener_notas(n_notas)
     pesos = obtener_peso_notas(n_notas)
     promedio = calcular_nota(n_notas, notas, pesos)
